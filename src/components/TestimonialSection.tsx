@@ -1,0 +1,3 @@
+import { Star } from 'lucide-react';
+import { testimonials } from '../data/siteData';
+export function TestimonialSection(){return <section className="testimonials"><h2>See what our customers<br/>are saying</h2><p>More than 700 clients choose HHA for strategic property advice.</p><div className="test-grid">{testimonials.map((t,i)=><article className={i%2?'test-card tall':'test-card'} key={t[0]}><img src={t[3]} alt={t[0]}/><blockquote>{t[2]}</blockquote><div><strong>{t[0]}</strong><span>{t[1]}</span></div><div className="stars">{Array.from({length:5}).map((_,j)=><Star key={j} size={12} fill="currentColor"/>)}<b>4.9</b></div></article>)}</div></section>}

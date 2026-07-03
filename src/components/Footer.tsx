@@ -1,0 +1,2 @@
+import { ArrowUpRight } from 'lucide-react';
+export function Footer(){return <footer><div className="footer-top"><a>hello@hhapropertyadvisory.com <ArrowUpRight size={16}/></a><div className="foot-cols"><div><b>Services</b><span>Buying</span><span>Advisory</span><span>Investment</span></div><div><b>Info</b><span>About</span><span>Contact</span><span>Process</span></div><div><b>About</b><span>Our team</span><span>Careers</span></div></div></div><div className="wordmark">HHA</div></footer>}
