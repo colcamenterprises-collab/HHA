@@ -1,0 +1,3 @@
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { properties } from '../data/siteData';
+export function PropertyCarousel(){return <section className="carousel section-white"><div className="carousel-head"><h2>Your Trusted Real<br/><em>Estate Advisors</em></h2><div><p>Discover the advantage of strategic property guidance with local knowledge, premium opportunities and expert negotiation.</p><button><ArrowLeft size={16}/></button><button><ArrowRight size={16}/></button></div></div><div className="carousel-row">{properties.map(p=><article className="prop-card" key={p[0]}><div className="prop-img card-img"><img src={p[2]} alt={p[0]}/><span><ArrowUpRight size={14}/></span></div><h3>{p[0]}</h3><p>{p[1]}</p></article>)}</div></section>}
