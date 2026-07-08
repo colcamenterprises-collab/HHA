@@ -6,10 +6,10 @@ export function Navbar() {
         <a href="#services">Services</a>
         <a href="#process">Process</a>
         <a href="#intelligence">Intelligence</a>
+        <a href="#diligence">Due Diligence</a>
         <a href="#opportunities">Opportunities</a>
-        <a href="#contact">Contact</a>
       </div>
-      <a className="contact-btn" href="#contact">Book a Strategy Call</a>
+      <a className="contact-btn" href="#strategy-call">Book a Strategy Call</a>
     </nav>
   );
 }
