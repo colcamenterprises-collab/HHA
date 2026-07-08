@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import { ArrowUpRight, FileSearch, Scale, SearchCheck, ShieldCheck, TrendingUp, X } from 'lucide-react';
 
-const HIGHLIGHT_VIDEO_SRC = '/media/hha-highlight.mp4';
+const HIGHLIGHT_VIDEO_SRC = 'https://github.com/user-attachments/assets/740d4706-472f-4b40-9c04-6ce0fe61461e';
 const HIGHLIGHT_VIDEO_POSTER = 'https://framerusercontent.com/images/nuTtmfD0U8YTAyaN05gJQw2XU.png?height=1347&width=2469';
 
 const intelligenceItems = [
