@@ -1,3 +1,15 @@
 export function Navbar() {
-  return <nav className="navbar" aria-label="Primary navigation"><a className="logo" href="#">HHA</a><div className="navlinks"><a>Buy</a><a>Sell</a><a>Advisory</a><a>About</a><a>Services</a><a>Home Loans</a></div><a className="contact-btn" href="#contact">Contact Us</a></nav>;
+  return (
+    <nav className="navbar" aria-label="Primary navigation">
+      <a className="logo" href="#" aria-label="HHA home">HHA</a>
+      <div className="navlinks">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#testimonials">Clients</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a className="contact-btn" href="#contact">Book a Strategy Call</a>
+    </nav>
+  );
 }
