@@ -27,24 +27,36 @@ const faqs = [
   ['Does HHA work with investors and home buyers?', 'Yes. The service structure supports family homes, first-home buyers, investors, relocation buyers and premium property searches.'],
 ];
 
+const quoteParts = [
+  { text: 'Focused on', italic: false },
+  { text: 'clarity', italic: true },
+  { text: 'built for better buying decisions. HHA helps buyers understand', italic: false },
+  { text: 'value', italic: true },
+  { text: 'avoid costly mistakes, and move forward with confidence.', italic: false },
+];
+
 export function QuoteRevealSection() {
+  let wordIndex = 0;
+
   return (
     <section className="quote-reveal" aria-label="HHA positioning statement">
       <div className="quote-sticky">
-        <p className="quote-line quote-line-one">
-          <span>Focused on </span><em>clarity</em><span>, built for better</span>
-        </p>
-        <p className="quote-line quote-line-two">
-          <span>buying decisions. HHA helps</span>
-        </p>
-        <p className="quote-line quote-line-three">
-          <span>buyers understand </span><em>value</em><span>, avoid</span>
-        </p>
-        <p className="quote-line quote-line-four">
-          <span>costly mistakes, and move</span>
-        </p>
-        <p className="quote-line quote-line-five">
-          <span>forward with confidence.</span>
+        <p className="quote-copy">
+          {quoteParts.flatMap((part, partIndex) => {
+            const words = part.text.split(' ');
+            return words.map((word, index) => {
+              const Component = part.italic ? 'em' : 'span';
+              const key = `${partIndex}-${index}-${word}`;
+              const renderedWord = wordIndex++;
+              const shouldAddComma = (part.text === 'clarity' || part.text === 'value') && index === words.length - 1;
+              const shouldAddConnector = part.text === 'clarity' && index === words.length - 1;
+              return (
+                <Component className="quote-word" style={{ '--word': renderedWord } as React.CSSProperties} key={key}>
+                  {word}{shouldAddComma ? ',' : ''}{shouldAddConnector ? '' : ''}
+                </Component>
+              );
+            });
+          })}
         </p>
       </div>
     </section>
