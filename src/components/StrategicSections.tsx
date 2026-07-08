@@ -1,6 +1,8 @@
 import type { CSSProperties } from 'react';
 import { ArrowUpRight, FileSearch, Scale, SearchCheck, ShieldCheck, TrendingUp, X } from 'lucide-react';
-import { images } from '../data/siteData';
+
+const HIGHLIGHT_VIDEO_SRC = '/media/hha-highlight.mp4';
+const HIGHLIGHT_VIDEO_POSTER = 'https://framerusercontent.com/images/nuTtmfD0U8YTAyaN05gJQw2XU.png?height=1347&width=2469';
 
 const intelligenceItems = [
   ['Market position', 'Compare recent sales, suburb momentum and buyer competition before committing to a price range.', TrendingUp],
@@ -42,15 +44,25 @@ export function ExpandingMediaSection() {
     <section className="expanding-media" aria-label="HHA premium buying experience">
       <div className="expanding-sticky">
         <div className="media-marquee media-marquee-top" aria-hidden="true">
-          <span>Buy Better · Modern Spaces · Explore Homes · Live Better · </span>
-          <span>Buy Better · Modern Spaces · Explore Homes · Live Better · </span>
+          <span>Buy Better · Private Search · Better Decisions · Buyer Advocacy · </span>
+          <span>Buy Better · Private Search · Better Decisions · Buyer Advocacy · </span>
         </div>
         <figure className="expanding-frame">
-          <img src={images.property4} alt="Premium modern home exterior at dusk" />
+          <video
+            className="expanding-video"
+            src={HIGHLIGHT_VIDEO_SRC}
+            poster={HIGHLIGHT_VIDEO_POSTER}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Premium modern home video"
+          />
         </figure>
         <div className="media-marquee media-marquee-bottom" aria-hidden="true">
-          <span>Private Search · Better Decisions · Buyer Advocacy · Negotiation · </span>
-          <span>Private Search · Better Decisions · Buyer Advocacy · Negotiation · </span>
+          <span>Negotiation · Due Diligence · Market Evidence · Settlement Support · </span>
+          <span>Negotiation · Due Diligence · Market Evidence · Settlement Support · </span>
         </div>
       </div>
     </section>
