@@ -1,4 +1,36 @@
 import { ChevronDown } from 'lucide-react';
 import { images } from '../data/siteData';
 import { Navbar } from './Navbar';
-export function HeroSection() { return <section className="hero-wrap"><Navbar/><div className="hero-img card-img"><img src={images.hero} alt="Luxury modern mansion exterior"/><div className="hero-overlay"/><div className="hero-copy"><h1><span>We Build</span><em>Community</em></h1><p>Welcome to a smarter way to buy property. HHA helps clients secure homes and investments with clarity, strategy and confidence.</p></div><div className="search-panel"><h2>Search for the property you're looking for</h2><div className="search-row">{['Location','Price','Property'].map(x=><button key={x}>{x}<ChevronDown size={13}/></button>)}<button className="search-submit">Search</button></div></div><div className="mini-card card-img"><img src={images.interior} alt="Luxury interior"/><div><h3>Find a home that suits your strategy</h3><button>Explore Now</button></div></div></div><div className="pills"><span>ARCHITECTURE</span><span>HOUSE</span><span>COMMERCIAL</span></div></section> }
+
+const briefOptions = ['Family Home', 'Investment', 'Relocation'];
+
+export function HeroSection() {
+  return (
+    <section className="hero-wrap">
+      <Navbar />
+      <div className="hero-img card-img">
+        <img src={images.hero} alt="Premium Australian home exterior" />
+        <div className="hero-overlay" />
+        <div className="hero-copy">
+          <h1><span>Buy Better</span><em>With HHA</em></h1>
+          <p>Independent buyer representation for people who want the right property, the right strategy and a calmer path from search to settlement.</p>
+        </div>
+        <div className="search-panel" aria-label="Buyer strategy enquiry options">
+          <h2>Start with the right buying brief</h2>
+          <div className="search-row">
+            {briefOptions.map((option) => <button key={option}>{option}<ChevronDown size={13} /></button>)}
+            <button className="search-submit" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Start</button>
+          </div>
+        </div>
+        <div className="mini-card card-img">
+          <img src={images.interior} alt="Premium residential interior" />
+          <div>
+            <h3>Property decisions backed by strategy</h3>
+            <button onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>Explore Services</button>
+          </div>
+        </div>
+      </div>
+      <div className="pills"><span>BUYER ADVOCACY</span><span>OFF-MARKET SEARCH</span><span>NEGOTIATION</span></div>
+    </section>
+  );
+}

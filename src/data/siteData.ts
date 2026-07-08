@@ -19,11 +19,11 @@ export const images = {
 };
 
 export const properties = [
-  ['Off-market Opportunity Search', 'Access quiet campaigns and hidden opportunities before they reach the open market.', images.property1],
-  ['Investment Property Review', 'Research-backed assessments of growth, rental demand and long-term fit.', images.property2],
-  ['Premium Home Shortlist', 'A focused shortlist of homes matched to your goals, lifestyle and budget.', images.property3],
-  ['Negotiation Strategy', 'A clear acquisition plan designed to protect value and improve terms.', images.property4],
-  ['Settlement Support', 'Calm guidance from contract exchange through settlement and handover.', images.property5],
+  ['Off-Market Opportunity Search', 'Find quiet campaigns, agent-led conversations and hidden opportunities before the broader market reacts.', images.property1],
+  ['Investment Property Review', 'Assess growth drivers, rental appeal, downside risk and long-term fit before you commit.', images.property2],
+  ['Family Home Shortlist', 'Turn a broad brief into a focused shortlist of homes that match lifestyle, school zones, timing and budget.', images.property3],
+  ['Negotiation Strategy', 'Enter offers and auctions with a clear acquisition plan designed to protect value and improve terms.', images.property4],
+  ['Settlement Support', 'Stay supported from due diligence and contract review through settlement and handover.', images.property5],
 ];
 
 export const testimonials = [
