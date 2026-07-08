@@ -10,7 +10,6 @@ export function App() {
   return (
     <main className="page">
       <HeroSection />
-      <ExpandingMediaSection />
       <QuoteRevealSection />
       <AdvisorsSection />
       <MarketIntelligenceSection />
@@ -19,6 +18,7 @@ export function App() {
       <DueDiligenceSection />
       <WhySection />
       <PropertyCarousel />
+      <ExpandingMediaSection />
       <ClientOutcomesSection />
       <FaqSection />
       <FinalCtaSection />
