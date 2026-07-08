@@ -1,13 +1,27 @@
 import { AdvisorsSection } from './components/AdvisorsSection';
 import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
 import { PartnerSection } from './components/PartnerSection';
 import { PropertyCarousel } from './components/PropertyCarousel';
 import { ServicesSection } from './components/ServicesSection';
-import { TestimonialSection } from './components/TestimonialSection';
 import { WhySection } from './components/WhySection';
+import { ClientOutcomesSection, DueDiligenceSection, FaqSection, FinalCtaSection, MarketIntelligenceSection } from './components/StrategicSections';
 
 export function App() {
-  return <main className="page"><HeroSection/><AdvisorsSection/><PartnerSection/><ServicesSection/><WhySection/><PropertyCarousel/><TestimonialSection/><ContactSection/><Footer/></main>;
+  return (
+    <main className="page">
+      <HeroSection />
+      <AdvisorsSection />
+      <MarketIntelligenceSection />
+      <PartnerSection />
+      <ServicesSection />
+      <DueDiligenceSection />
+      <WhySection />
+      <PropertyCarousel />
+      <ClientOutcomesSection />
+      <FaqSection />
+      <FinalCtaSection />
+      <ContactSection />
+    </main>
+  );
 }
