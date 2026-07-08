@@ -58,19 +58,18 @@ em {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 2;
 }
 
 .quote-sticky::before {
-  background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.16) 16%, rgba(255,255,255,0) 28%, rgba(255,255,255,0) 72%, rgba(255,255,255,.2) 84%, rgba(255,255,255,.96) 100%);
-  z-index: 2;
+  background: linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.14) 13%, rgba(255,255,255,0) 25%, rgba(255,255,255,0) 75%, rgba(255,255,255,.14) 87%, rgba(255,255,255,.94) 100%);
 }
 
 .quote-sticky::after {
-  background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, transparent 18%, transparent 82%, rgba(255,255,255,.98) 100%);
-  z-index: 2;
+  background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, transparent 17%, transparent 83%, rgba(255,255,255,.98) 100%);
 }
 
-.quote-line {
+.quote-copy {
   position: relative;
   z-index: 1;
   max-width: min(1180px, 100%);
@@ -78,61 +77,48 @@ em {
   text-align: center;
   color: hsl(var(--dark));
   font-family: var(--premium-font);
-  font-size: clamp(42px, 6.1vw, 88px);
+  font-size: clamp(42px, 6.05vw, 84px);
   font-weight: 700;
-  line-height: .98;
-  letter-spacing: -.075em;
-  opacity: .12;
-  filter: blur(10px);
-  transform: translateY(34px) scale(.985);
-  animation-name: quoteLineReveal;
+  line-height: 1.08;
+  letter-spacing: -.078em;
+}
+
+.quote-word {
+  display: inline-block;
+  margin-right: .18em;
+  white-space: nowrap;
+  opacity: .1;
+  filter: blur(12px);
+  transform: translateY(.28em);
+  animation-name: quoteWordReveal;
   animation-duration: 1ms;
   animation-fill-mode: both;
   animation-timing-function: linear;
   animation-timeline: view();
+  animation-range: calc(6% + (var(--word) * 2.15%)) calc(20% + (var(--word) * 2.15%));
 }
 
-.quote-line em {
-  font-size: 1.04em;
+.quote-copy em.quote-word {
+  font-size: 1.06em;
   font-weight: 500;
-  letter-spacing: -.06em;
+  letter-spacing: -.065em;
 }
 
-.quote-line-one {
-  animation-range: entry 5% cover 24%;
-}
-
-.quote-line-two {
-  animation-range: entry 15% cover 34%;
-}
-
-.quote-line-three {
-  animation-range: entry 25% cover 44%;
-}
-
-.quote-line-four {
-  animation-range: entry 35% cover 54%;
-}
-
-.quote-line-five {
-  animation-range: entry 45% cover 64%;
-}
-
-@keyframes quoteLineReveal {
+@keyframes quoteWordReveal {
   0% {
     opacity: .08;
     filter: blur(13px);
-    transform: translateY(46px) scale(.975);
+    transform: translateY(.34em);
   }
-  58% {
-    opacity: .62;
+  55% {
+    opacity: .5;
     filter: blur(4px);
-    transform: translateY(12px) scale(.995);
+    transform: translateY(.08em);
   }
   100% {
     opacity: 1;
     filter: blur(0);
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
@@ -145,7 +131,7 @@ em {
     position: relative;
   }
 
-  .quote-line {
+  .quote-word {
     opacity: 1;
     filter: none;
     transform: none;
@@ -161,7 +147,7 @@ em {
     position: relative;
   }
 
-  .quote-line {
+  .quote-word {
     animation: none;
     opacity: 1;
     filter: none;
@@ -171,15 +157,19 @@ em {
 
 @media (max-width: 680px) {
   .quote-reveal {
-    min-height: 170vh;
+    min-height: 185vh;
   }
 
   .quote-sticky {
     padding: 70px 18px;
   }
 
-  .quote-line {
-    font-size: clamp(38px, 13vw, 62px);
-    line-height: .96;
+  .quote-copy {
+    font-size: clamp(38px, 12.5vw, 60px);
+    line-height: 1.02;
+  }
+
+  .quote-word {
+    margin-right: .13em;
   }
 }
