@@ -30,9 +30,23 @@ const faqs = [
 export function QuoteRevealSection() {
   return (
     <section className="quote-reveal" aria-label="HHA positioning statement">
-      <p>
-        Focused on <em>clarity</em>, built for better buying decisions. HHA helps buyers understand <em>value</em>, avoid costly mistakes, and move forward with confidence.
-      </p>
+      <div className="quote-sticky">
+        <p className="quote-line quote-line-one">
+          <span>Focused on </span><em>clarity</em><span>, built for better</span>
+        </p>
+        <p className="quote-line quote-line-two">
+          <span>buying decisions. HHA helps</span>
+        </p>
+        <p className="quote-line quote-line-three">
+          <span>buyers understand </span><em>value</em><span>, avoid</span>
+        </p>
+        <p className="quote-line quote-line-four">
+          <span>costly mistakes, and move</span>
+        </p>
+        <p className="quote-line quote-line-five">
+          <span>forward with confidence.</span>
+        </p>
+      </div>
     </section>
   );
 }
