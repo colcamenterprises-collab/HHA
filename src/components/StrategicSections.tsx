@@ -102,7 +102,7 @@ export function MarketIntelligenceSection() {
       <div className="section-kicker">HHA Intelligence</div>
       <div className="strategic-split">
         <div className="strategic-copy reveal-up">
-          <h2>Better decisions before the offer.</h2>
+          <h2>Better decisions<br /><em>Before the offer</em></h2>
           <p>Most buyers only see the listing. HHA helps clients understand value, pressure, risk and negotiation position before emotion takes over.</p>
         </div>
         <div className="intelligence-grid">
@@ -127,7 +127,7 @@ export function DueDiligenceSection() {
     <section className="diligence-minimal" id="diligence">
       <div className="diligence-minimal-head reveal-up">
         <span>Buyer Due Diligence</span>
-        <h2>What gets checked before commitment.</h2>
+        <h2>Checked before<br /><em>Commitment</em></h2>
       </div>
       <div className="diligence-rows">
         {diligenceItems.map((item) => (
@@ -147,7 +147,7 @@ export function ClientOutcomesSection() {
     <section className="strategic-section outcomes-section" id="outcomes">
       <div className="outcomes-head reveal-up">
         <div className="section-kicker">Client Outcomes</div>
-        <h2>Realistic outcomes, not fake reviews.</h2>
+        <h2>Realistic outcomes<br /><em>Not fake reviews</em></h2>
         <p>Until the client provides verified testimonials, credibility is stronger when the site shows useful buyer scenarios instead of stock portraits and invented ratings.</p>
       </div>
       <div className="outcome-grid">
@@ -167,7 +167,7 @@ export function FaqSection() {
   return (
     <section className="strategic-section faq-section">
       <div className="section-kicker">FAQ</div>
-      <h2>Questions serious buyers ask first.</h2>
+      <h2>Questions serious<br /><em>Buyers ask first</em></h2>
       <div className="faq-grid">
         {faqs.map((faq) => (
           <details className="faq-item motion-card" key={faq[0]}>
@@ -185,9 +185,9 @@ export function FinalCtaSection() {
     <section className="final-cta-minimal">
       <div className="final-cta-copy reveal-up">
         <span>Start with strategy</span>
-        <h2>Buy with a sharper brief, stronger evidence, and less pressure.</h2>
+        <h2>Buy with a sharper brief,<br /><em>Evidence and less pressure</em></h2>
       </div>
-      <a className="premium-cta" href="#strategy-call">Book a Strategy Call <ArrowUpRight size={16} /></a>
+      <a className="premium-cta" href="#strategy-call">Contact us <ArrowUpRight size={16} /></a>
     </section>
   );
 }
