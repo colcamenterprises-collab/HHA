@@ -1,4 +1,4 @@
-import { ArrowUpRight, BadgeCheck, FileSearch, Scale, SearchCheck, ShieldCheck, TrendingUp } from 'lucide-react';
+import { ArrowUpRight, FileSearch, Scale, SearchCheck, ShieldCheck, TrendingUp, X } from 'lucide-react';
 
 const intelligenceItems = [
   ['Market position', 'Compare recent sales, suburb momentum and buyer competition before committing to a price range.', TrendingUp],
@@ -8,12 +8,10 @@ const intelligenceItems = [
 ];
 
 const diligenceItems = [
-  'Comparable sales evidence',
-  'Street and location quality',
-  'Renovation and maintenance risk',
-  'Rental and resale appeal',
-  'Contract and settlement timing',
-  'Auction or offer strategy',
+  ['01', 'Value evidence', 'Comparable sales, suburb movement and price logic before an offer is made.'],
+  ['02', 'Location quality', 'Street appeal, access, future demand and risks that affect long-term resale.'],
+  ['03', 'Property risk', 'Condition, renovation exposure, inspection priorities and hidden maintenance concerns.'],
+  ['04', 'Purchase strategy', 'Offer position, auction ceiling, contract timing and settlement path.'],
 ];
 
 const outcomeItems = [
@@ -28,6 +26,16 @@ const faqs = [
   ['Can HHA help with off-market opportunities?', 'Yes. The site now positions private search and agent conversations as part of the buyer advocacy process.'],
   ['Does HHA work with investors and home buyers?', 'Yes. The service structure supports family homes, first-home buyers, investors, relocation buyers and premium property searches.'],
 ];
+
+export function QuoteRevealSection() {
+  return (
+    <section className="quote-reveal" aria-label="HHA positioning statement">
+      <p>
+        Focused on <em>clarity</em>, built for better buying decisions. HHA helps buyers understand <em>value</em>, avoid costly mistakes, and move forward with confidence.
+      </p>
+    </section>
+  );
+}
 
 export function MarketIntelligenceSection() {
   return (
@@ -57,16 +65,19 @@ export function MarketIntelligenceSection() {
 
 export function DueDiligenceSection() {
   return (
-    <section className="strategic-section diligence-section">
-      <div className="diligence-panel motion-card">
-        <div>
-          <div className="section-kicker">Buyer Due Diligence</div>
-          <h2>What gets checked before you buy.</h2>
-          <p>HHA should feel like a decision filter, not just another property website. This section explains the practical work behind the advice.</p>
-        </div>
-        <div className="diligence-list">
-          {diligenceItems.map((item) => <span key={item}><BadgeCheck size={17} />{item}</span>)}
-        </div>
+    <section className="diligence-minimal" id="diligence">
+      <div className="diligence-minimal-head reveal-up">
+        <span>Buyer Due Diligence</span>
+        <h2>What gets checked before commitment.</h2>
+      </div>
+      <div className="diligence-rows">
+        {diligenceItems.map((item) => (
+          <article className="diligence-row motion-card" key={item[0]}>
+            <strong>{item[0]}</strong>
+            <h3>{item[1]}</h3>
+            <p>{item[2]}</p>
+          </article>
+        ))}
       </div>
     </section>
   );
@@ -77,8 +88,8 @@ export function ClientOutcomesSection() {
     <section className="strategic-section outcomes-section" id="outcomes">
       <div className="outcomes-head reveal-up">
         <div className="section-kicker">Client Outcomes</div>
-        <h2>Proof without fake review cards.</h2>
-        <p>Until the client provides real testimonials, this section keeps credibility high by showing realistic buyer scenarios instead of stock portraits and invented ratings.</p>
+        <h2>Realistic outcomes, not fake reviews.</h2>
+        <p>Until the client provides verified testimonials, credibility is stronger when the site shows useful buyer scenarios instead of stock portraits and invented ratings.</p>
       </div>
       <div className="outcome-grid">
         {outcomeItems.map((item, index) => (
@@ -112,13 +123,35 @@ export function FaqSection() {
 
 export function FinalCtaSection() {
   return (
-    <section className="final-cta">
-      <div className="final-cta-inner motion-card">
-        <div>
-          <span>Ready to buy with less guesswork?</span>
-          <h2>Start with a sharper brief and a clearer acquisition strategy.</h2>
+    <section className="final-cta-minimal">
+      <div className="final-cta-copy reveal-up">
+        <span>Start with strategy</span>
+        <h2>Buy with a sharper brief, stronger evidence, and less pressure.</h2>
+      </div>
+      <a className="premium-cta" href="#strategy-call">Book a Strategy Call <ArrowUpRight size={16} /></a>
+    </section>
+  );
+}
+
+export function StrategyCallModal() {
+  return (
+    <section className="strategy-modal" id="strategy-call" aria-label="Book a buyer strategy call">
+      <a className="strategy-modal-backdrop" href="#" aria-label="Close strategy call form" />
+      <div className="strategy-modal-card" role="dialog" aria-modal="true" aria-labelledby="strategy-modal-title">
+        <a className="strategy-modal-close" href="#" aria-label="Close"><X size={18} /></a>
+        <div className="strategy-modal-copy">
+          <span>HHA Buyer Advisory</span>
+          <h2 id="strategy-modal-title">Book a Buyer Strategy Call</h2>
+          <p>Share what you are trying to buy, where you are looking and the level of support you need. HHA will come back with the next best step.</p>
         </div>
-        <a href="#contact">Book a Strategy Call <ArrowUpRight size={16} /></a>
+        <form action="mailto:hello@hhapropertyadvisory.com" method="post" encType="text/plain">
+          <input name="firstName" placeholder="First Name" required />
+          <input name="lastName" placeholder="Last Name" required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="phone" type="tel" placeholder="Phone" />
+          <textarea name="message" placeholder="What are you looking to buy?" required />
+          <button type="submit">Send Enquiry</button>
+        </form>
       </div>
     </section>
   );
