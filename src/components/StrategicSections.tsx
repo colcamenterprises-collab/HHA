@@ -1,4 +1,6 @@
+import type { CSSProperties } from 'react';
 import { ArrowUpRight, FileSearch, Scale, SearchCheck, ShieldCheck, TrendingUp, X } from 'lucide-react';
+import { images } from '../data/siteData';
 
 const intelligenceItems = [
   ['Market position', 'Compare recent sales, suburb momentum and buyer competition before committing to a price range.', TrendingUp],
@@ -35,6 +37,26 @@ const quoteParts = [
   { text: 'avoid costly mistakes, and move forward with confidence.', italic: false },
 ];
 
+export function ExpandingMediaSection() {
+  return (
+    <section className="expanding-media" aria-label="HHA premium buying experience">
+      <div className="expanding-sticky">
+        <div className="media-marquee media-marquee-top" aria-hidden="true">
+          <span>Buy Better · Modern Spaces · Explore Homes · Live Better · </span>
+          <span>Buy Better · Modern Spaces · Explore Homes · Live Better · </span>
+        </div>
+        <figure className="expanding-frame">
+          <img src={images.property4} alt="Premium modern home exterior at dusk" />
+        </figure>
+        <div className="media-marquee media-marquee-bottom" aria-hidden="true">
+          <span>Private Search · Better Decisions · Buyer Advocacy · Negotiation · </span>
+          <span>Private Search · Better Decisions · Buyer Advocacy · Negotiation · </span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function QuoteRevealSection() {
   let wordIndex = 0;
 
@@ -49,10 +71,9 @@ export function QuoteRevealSection() {
               const key = `${partIndex}-${index}-${word}`;
               const renderedWord = wordIndex++;
               const shouldAddComma = (part.text === 'clarity' || part.text === 'value') && index === words.length - 1;
-              const shouldAddConnector = part.text === 'clarity' && index === words.length - 1;
               return (
-                <Component className="quote-word" style={{ '--word': renderedWord } as React.CSSProperties} key={key}>
-                  {word}{shouldAddComma ? ',' : ''}{shouldAddConnector ? '' : ''}
+                <Component className="quote-word" style={{ '--word': renderedWord } as CSSProperties} key={key}>
+                  {word}{shouldAddComma ? ',' : ''}
                 </Component>
               );
             });
