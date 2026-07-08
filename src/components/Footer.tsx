@@ -1,2 +1,17 @@
 import { ArrowUpRight } from 'lucide-react';
-export function Footer(){return <footer><div className="footer-top"><a>hello@hhapropertyadvisory.com <ArrowUpRight size={16}/></a><div className="foot-cols"><div><b>Services</b><span>Buying</span><span>Advisory</span><span>Investment</span></div><div><b>Info</b><span>About</span><span>Contact</span><span>Process</span></div><div><b>About</b><span>Our team</span><span>Careers</span></div></div></div><div className="wordmark">HHA</div></footer>}
+
+export function Footer() {
+  return (
+    <footer>
+      <div className="footer-top">
+        <a href="mailto:hello@hhapropertyadvisory.com">hello@hhapropertyadvisory.com <ArrowUpRight size={16} /></a>
+        <div className="foot-cols">
+          <div><b>Services</b><span>Buyer Advocacy</span><span>Property Search</span><span>Investment Review</span></div>
+          <div><b>Process</b><span>Brief</span><span>Shortlist</span><span>Negotiation</span></div>
+          <div><b>HHA</b><span>Independent Advice</span><span>Buyer First</span><span>Settlement Support</span></div>
+        </div>
+      </div>
+      <div className="wordmark">HHA</div>
+    </footer>
+  );
+}
