@@ -1,4 +1,23 @@
 import { ArrowUpRight } from 'lucide-react';
 import { images } from '../data/siteData';
-const services=[['Buy a home','Find your ideal property with strategic buyer advocacy and expert support.',images.service1],['Selling a home','Prepare your home for market with clear advice and positioning.',null],['Invest with confidence','Identify strong opportunities backed by research and negotiation.',images.service2],['Rent a home','Explore premium living options with less stress and more clarity.',images.service3]];
-export function ServicesSection(){return <section className="services"><div className="services-head"><h2>Expert Services for Buyers,<br/><em>Sellers</em>, and Investors</h2><div className="chips">{['Commercial','Property','House','Villa','Apartments'].map(c=><span key={c}>{c}</span>)}</div></div><div className="service-grid">{services.map((s,i)=><article className={`service-card s${i}`} key={s[0] as string}>{s[2]&&<div className="service-img card-img"><img src={s[2] as string} alt={s[0] as string}/></div>}<h3>{s[0]}</h3><p>{s[1]}</p><button>View Details <ArrowUpRight size={12}/></button></article>)}</div></section>}
+
+const services = [
+  ['Buyer Advocacy', 'End-to-end representation for buyers who want expert guidance from first brief to settlement.', images.service1],
+  ['Property Search', 'A focused search process that filters noise and surfaces homes or investments that fit the brief.', null],
+  ['Investment Review', 'Research-led assessment of value, growth drivers, rental appeal and long-term risk before purchase.', images.service2],
+  ['Negotiation & Settlement', 'Offer, auction and contract support designed to protect your position and reduce stress.', images.service3],
+];
+
+export function ServicesSection() {
+  return (
+    <section className="services" id="services">
+      <div className="services-head">
+        <h2>Strategic Services for<br /><em>Property Buyers</em></h2>
+        <div className="chips">{['Family Homes', 'Investments', 'First Home', 'Relocation', 'Off-Market'].map((chip) => <span key={chip}>{chip}</span>)}</div>
+      </div>
+      <div className="service-grid">
+        {services.map((service, index) => <article className={`service-card s${index}`} key={service[0] as string}>{service[2] && <div className="service-img card-img"><img src={service[2] as string} alt={service[0] as string} /></div>}<h3>{service[0]}</h3><p>{service[1]}</p><button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Enquire <ArrowUpRight size={12} /></button></article>)}
+      </div>
+    </section>
+  );
+}
