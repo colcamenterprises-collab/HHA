@@ -1,0 +1,185 @@
+/* Quote reveal + global premium typography direction */
+
+:root {
+  --premium-font: 'General Sans', Inter, system-ui, sans-serif;
+  --premium-serif: 'Playfair Display', serif;
+}
+
+body {
+  background: #fff;
+  font-family: var(--premium-font);
+}
+
+h1,
+h2,
+h3,
+.logo,
+.navlinks,
+.contact-btn,
+.hero-cta,
+.premium-cta,
+.premium-why-link,
+button,
+input,
+textarea {
+  font-family: var(--premium-font);
+}
+
+em {
+  font-family: var(--premium-serif);
+}
+
+.quote-reveal {
+  position: relative;
+  display: block;
+  min-height: 220vh;
+  padding: 0;
+  background: #fff;
+  border: 0;
+  overflow: visible;
+}
+
+.quote-sticky {
+  position: sticky;
+  top: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: clamp(72px, 10vw, 130px) clamp(22px, 6vw, 96px);
+  background:
+    radial-gradient(circle at 16% 26%, rgba(0, 0, 0, .035), transparent 25%),
+    radial-gradient(circle at 76% 64%, rgba(0, 0, 0, .045), transparent 30%),
+    #fff;
+}
+
+.quote-sticky::before,
+.quote-sticky::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.quote-sticky::before {
+  background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.16) 16%, rgba(255,255,255,0) 28%, rgba(255,255,255,0) 72%, rgba(255,255,255,.2) 84%, rgba(255,255,255,.96) 100%);
+  z-index: 2;
+}
+
+.quote-sticky::after {
+  background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, transparent 18%, transparent 82%, rgba(255,255,255,.98) 100%);
+  z-index: 2;
+}
+
+.quote-line {
+  position: relative;
+  z-index: 1;
+  max-width: min(1180px, 100%);
+  margin: 0;
+  text-align: center;
+  color: hsl(var(--dark));
+  font-family: var(--premium-font);
+  font-size: clamp(42px, 6.1vw, 88px);
+  font-weight: 700;
+  line-height: .98;
+  letter-spacing: -.075em;
+  opacity: .12;
+  filter: blur(10px);
+  transform: translateY(34px) scale(.985);
+  animation-name: quoteLineReveal;
+  animation-duration: 1ms;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-timeline: view();
+}
+
+.quote-line em {
+  font-size: 1.04em;
+  font-weight: 500;
+  letter-spacing: -.06em;
+}
+
+.quote-line-one {
+  animation-range: entry 5% cover 24%;
+}
+
+.quote-line-two {
+  animation-range: entry 15% cover 34%;
+}
+
+.quote-line-three {
+  animation-range: entry 25% cover 44%;
+}
+
+.quote-line-four {
+  animation-range: entry 35% cover 54%;
+}
+
+.quote-line-five {
+  animation-range: entry 45% cover 64%;
+}
+
+@keyframes quoteLineReveal {
+  0% {
+    opacity: .08;
+    filter: blur(13px);
+    transform: translateY(46px) scale(.975);
+  }
+  58% {
+    opacity: .62;
+    filter: blur(4px);
+    transform: translateY(12px) scale(.995);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .quote-reveal {
+    min-height: auto;
+  }
+
+  .quote-sticky {
+    position: relative;
+  }
+
+  .quote-line {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-reveal {
+    min-height: auto;
+  }
+
+  .quote-sticky {
+    position: relative;
+  }
+
+  .quote-line {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .quote-reveal {
+    min-height: 170vh;
+  }
+
+  .quote-sticky {
+    padding: 70px 18px;
+  }
+
+  .quote-line {
+    font-size: clamp(38px, 13vw, 62px);
+    line-height: .96;
+  }
+}
