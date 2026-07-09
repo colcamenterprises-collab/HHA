@@ -3,6 +3,7 @@ import { HeroSection } from './components/HeroSection';
 import { PartnerSection } from './components/PartnerSection';
 import { PropertyCarousel } from './components/PropertyCarousel';
 import { ServicesSection } from './components/ServicesSection';
+import { SiteFooter } from './components/SiteFooter';
 import { WhySection } from './components/WhySection';
 import { ClientOutcomesSection, DueDiligenceSection, ExpandingMediaSection, FaqSection, FinalCtaSection, MarketIntelligenceSection, QuoteRevealSection, StrategyCallModal } from './components/StrategicSections';
 
@@ -22,6 +23,7 @@ export function App() {
       <ClientOutcomesSection />
       <FaqSection />
       <FinalCtaSection />
+      <SiteFooter />
       <StrategyCallModal />
     </main>
   );
