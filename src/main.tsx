@@ -6,6 +6,7 @@ import './strategic.css';
 import './quoteReveal.css';
 import './expandingMedia.css';
 import './finalPolish.css';
+import './logoPolish.css';
 import { App } from './App';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
