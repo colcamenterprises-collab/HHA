@@ -9,6 +9,7 @@ import './finalPolish.css';
 import './logoPolish.css';
 import './processHover.css';
 import './heroServicesLayout.css';
+import './footerPolish.css';
 import { App } from './App';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
