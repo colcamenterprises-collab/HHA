@@ -1,0 +1,202 @@
+/* Hero two-line lock + grouped services layout */
+
+/* Remove any remaining header glow/shadow */
+.contact-btn,
+.contact-btn:hover,
+.contact-btn:focus {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Hero headline must stay as two lines: Buy Better / With HHA */
+.hero-shell {
+  padding-top: clamp(28px, 4vw, 58px) !important;
+}
+
+.hero-intro {
+  display: block !important;
+  max-width: 1440px !important;
+  margin: 0 auto clamp(22px, 3vw, 38px) !important;
+}
+
+.hero-intro h1 {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.hero-intro h1 span,
+.hero-intro h1 em {
+  display: block !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+.hero-intro h1 span {
+  font-size: clamp(62px, 8vw, 128px) !important;
+  line-height: .82 !important;
+}
+
+.hero-intro h1 em {
+  margin-top: 0 !important;
+  font-size: clamp(64px, 8.4vw, 134px) !important;
+  line-height: .82 !important;
+}
+
+.hero-intro p {
+  max-width: 760px !important;
+  margin-top: clamp(14px, 1.8vw, 24px) !important;
+}
+
+.hero-img {
+  height: clamp(360px, 44vw, 610px) !important;
+}
+
+/* Strategic services grouped layout */
+.services {
+  background: hsl(var(--surface-soft)) !important;
+}
+
+.services-head {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 440px) !important;
+  align-items: start !important;
+  gap: clamp(28px, 5vw, 72px) !important;
+  margin-bottom: clamp(34px, 5vw, 64px) !important;
+}
+
+.service-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(26px, 3.8vw, 56px) !important;
+  align-items: start !important;
+}
+
+.service-card,
+.service-card.s2,
+.service-card.s3 {
+  grid-column: auto !important;
+  align-self: start !important;
+  margin: 0 !important;
+}
+
+.service-card {
+  min-width: 0 !important;
+}
+
+.service-img,
+.s2 .service-img {
+  width: 100% !important;
+  height: clamp(230px, 26vw, 360px) !important;
+  margin-bottom: 22px !important;
+  border-radius: 22px !important;
+}
+
+.service-card h3 {
+  margin: 0 0 12px !important;
+  font-size: clamp(24px, 2.2vw, 34px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.045em !important;
+}
+
+.service-card p {
+  max-width: 520px !important;
+  margin-bottom: 22px !important;
+  font-size: clamp(14px, 1.2vw, 17px) !important;
+  line-height: 1.5 !important;
+}
+
+.service-card:not(:has(.service-img)) {
+  min-height: clamp(230px, 26vw, 360px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  padding: clamp(26px, 3.4vw, 46px) !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  border: 1px solid rgba(0,0,0,.06) !important;
+}
+
+@supports not selector(:has(*)) {
+  .service-card.s1 {
+    min-height: clamp(230px, 26vw, 360px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: clamp(26px, 3.4vw, 46px) !important;
+    border-radius: 22px !important;
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,.06) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-intro h1 span {
+    font-size: clamp(58px, 12vw, 104px) !important;
+  }
+
+  .hero-intro h1 em {
+    font-size: clamp(60px, 12.8vw, 112px) !important;
+  }
+
+  .hero-img {
+    height: clamp(320px, 48vw, 520px) !important;
+  }
+
+  .services-head {
+    grid-template-columns: 1fr !important;
+  }
+
+  .chips {
+    justify-content: flex-start !important;
+  }
+
+  .service-grid {
+    gap: 34px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-shell {
+    padding-top: 20px !important;
+  }
+
+  .hero-intro {
+    margin-bottom: 18px !important;
+  }
+
+  .hero-intro h1 span {
+    font-size: clamp(46px, 14vw, 58px) !important;
+    letter-spacing: -.085em !important;
+  }
+
+  .hero-intro h1 em {
+    font-size: clamp(48px, 14.8vw, 62px) !important;
+    letter-spacing: -.07em !important;
+  }
+
+  .hero-intro p {
+    max-width: 96% !important;
+    margin-top: 12px !important;
+  }
+
+  .hero-img {
+    height: clamp(230px, 56vw, 320px) !important;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr !important;
+    gap: 34px !important;
+  }
+
+  .services-head {
+    margin-bottom: 32px !important;
+  }
+
+  .service-img,
+  .s2 .service-img,
+  .service-card:not(:has(.service-img)) {
+    height: auto !important;
+    min-height: 230px !important;
+  }
+}
