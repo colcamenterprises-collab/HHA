@@ -1,0 +1,24 @@
+/* Real HHA Buyers Agent logo sizing */
+
+.logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: clamp(74px, 8vw, 108px) !important;
+  height: 54px !important;
+  overflow: hidden !important;
+}
+
+.logo img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+}
+
+@media (max-width: 680px) {
+  .logo {
+    width: 70px !important;
+    height: 46px !important;
+  }
+}
