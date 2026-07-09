@@ -9,7 +9,7 @@ export function WhySection() {
     <section className="premium-why section-white">
       <div className="premium-why-head reveal-up">
         <span>Why HHA</span>
-        <h2>Premium advice should feel calm, sharp and useful.</h2>
+        <h2>Premium advice should feel<br /><em>Calm, sharp and useful</em></h2>
       </div>
       <div className="premium-why-grid">
         {reasons.map((reason) => (
