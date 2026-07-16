@@ -5,7 +5,7 @@ import { PropertyCarousel } from './components/PropertyCarousel';
 import { ServicesSection } from './components/ServicesSection';
 import { SiteFooter } from './components/SiteFooter';
 import { WhySection } from './components/WhySection';
-import { ClientOutcomesSection, DueDiligenceSection, ExpandingMediaSection, FaqSection, FinalCtaSection, MarketIntelligenceSection, QuoteRevealSection, StrategyCallModal } from './components/StrategicSections';
+import { ClientOutcomesSection, ClientReviewQuoteSection, DueDiligenceSection, ExpandingMediaSection, FaqSection, FinalCtaSection, MarketIntelligenceSection, QuoteRevealSection, StrategyCallModal } from './components/StrategicSections';
 
 export function App() {
   return (
@@ -21,6 +21,7 @@ export function App() {
       <PropertyCarousel />
       <ExpandingMediaSection />
       <ClientOutcomesSection />
+      <ClientReviewQuoteSection />
       <FaqSection />
       <FinalCtaSection />
       <SiteFooter />
