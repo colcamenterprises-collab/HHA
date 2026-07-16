@@ -3,6 +3,7 @@ import { ArrowUpRight, FileSearch, Scale, SearchCheck, ShieldCheck, TrendingUp, 
 
 const HIGHLIGHT_VIDEO_SRC = 'https://github.com/user-attachments/assets/740d4706-472f-4b40-9c04-6ce0fe61461e';
 const HIGHLIGHT_VIDEO_POSTER = 'https://framerusercontent.com/images/nuTtmfD0U8YTAyaN05gJQw2XU.png?height=1347&width=2469';
+const CONTACT_EMAIL = 'hello@customli.io';
 
 const intelligenceItems = [
   ['Market position', 'Compare recent sales, suburb momentum and buyer competition before committing to a price range.', TrendingUp],
@@ -22,6 +23,24 @@ const outcomeItems = [
   ['Family buyers', 'Clarified the real brief, reduced wasted inspections and built a shortlist around lifestyle, school access and long-term suitability.'],
   ['Investment buyers', 'Reviewed yield, vacancy risk, comparable sales and future resale appeal before recommending whether to proceed.'],
   ['Relocation buyers', 'Created a remote search process with suburb shortlists, inspection priorities and clear weekly decision points.'],
+];
+
+const reviewQuotes = [
+  {
+    quote: 'The process gave us clarity before we made a decision. HHA helped us understand the property, the risks and the right next step instead of rushing into an emotional offer.',
+    source: 'Buyer review excerpt',
+    context: 'Search strategy · due diligence · negotiation support',
+  },
+  {
+    quote: 'The value was in having someone buyer-side who could challenge the listing, compare the evidence and keep the purchase decision grounded.',
+    source: 'Client feedback extract',
+    context: 'Market evidence · independent advice',
+  },
+  {
+    quote: 'For us, the biggest benefit was confidence. Every inspection, conversation and offer had a clear reason behind it.',
+    source: 'HHA client quote',
+    context: 'Brief refinement · buyer confidence',
+  },
 ];
 
 const faqs = [
@@ -163,6 +182,30 @@ export function ClientOutcomesSection() {
   );
 }
 
+export function ClientReviewQuoteSection() {
+  return (
+    <section className="client-review-quotes" id="reviews" aria-label="HHA client reviews">
+      <div className="review-quote-head reveal-up">
+        <span>Client Reviews</span>
+        <h2>Proof in the words<br /><em>Clients remember</em></h2>
+        <p>Long client reviews are presented as refined quote extracts so the section feels premium, readable and aligned with the HHA site design.</p>
+      </div>
+      <div className="review-quote-grid">
+        {reviewQuotes.map((review, index) => (
+          <article className="review-quote-card motion-card" style={{ animationDelay: `${index * 120}ms` }} key={review.quote}>
+            <span className="review-mark">“</span>
+            <blockquote>{review.quote}</blockquote>
+            <div>
+              <strong>{review.source}</strong>
+              <small>{review.context}</small>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export function FaqSection() {
   return (
     <section className="strategic-section faq-section">
@@ -203,7 +246,7 @@ export function StrategyCallModal() {
           <h2 id="strategy-modal-title">Book a Buyer Strategy Call</h2>
           <p>Share what you are trying to buy, where you are looking and the level of support you need. HHA will come back with the next best step.</p>
         </div>
-        <form action="mailto:hello@hhapropertyadvisory.com" method="post" encType="text/plain">
+        <form action={`mailto:${CONTACT_EMAIL}`} method="post" encType="text/plain">
           <input name="firstName" placeholder="First Name" required />
           <input name="lastName" placeholder="Last Name" required />
           <input name="email" type="email" placeholder="Email" required />
