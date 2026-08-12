@@ -7,10 +7,17 @@ import { SiteFooter } from './components/SiteFooter';
 import { WhySection } from './components/WhySection';
 import { ClientOutcomesSection, ClientReviewQuoteSection, DueDiligenceSection, ExpandingMediaSection, FaqSection, FinalCtaSection, MarketIntelligenceSection, QuoteRevealSection } from './components/StrategicSections';
 import { FreeStrategyCallPage } from './components/FreeStrategyCallPage';
+import { PrivacyPolicyPage, WebsiteDisclaimerPage } from './components/LegalPages';
 
 export function App() {
   if (window.location.pathname === '/free-strategy-call' || window.location.pathname === '/free-strategy-call/') {
     return <FreeStrategyCallPage />;
+  }
+  if (window.location.pathname === '/privacy-policy' || window.location.pathname === '/privacy-policy/') {
+    return <PrivacyPolicyPage />;
+  }
+  if (window.location.pathname === '/website-disclaimer' || window.location.pathname === '/website-disclaimer/') {
+    return <WebsiteDisclaimerPage />;
   }
 
   return (
