@@ -12,6 +12,7 @@ import './heroServicesLayout.css';
 import './footerPolish.css';
 import './clientReviews.css';
 import './freeStrategyCall.css';
+import './strategyCallConcept.css';
 import './legalPages.css';
 import './cookieConsent.css';
 import { App } from './App';
