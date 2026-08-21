@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowRight, CalendarDays, Check, Clock3, Phone, ShieldCheck } from 'lucide-react';
 import { images } from '../data/siteData';
 
@@ -17,35 +17,52 @@ const buyerTypes = [
 ];
 
 function MailerLiteForm() {
-  useEffect(() => {
-    const initialise = () => {
-      const windowWithMailerLite = window as typeof window & {
-        ml?: ((...args: unknown[]) => void) & { q?: unknown[][] };
-      };
+  const [failed, setFailed] = useState(false);
 
-      const mailerLite = windowWithMailerLite.ml || function (...args: unknown[]) {
-        const queue = windowWithMailerLite.ml?.q || [];
-        queue.push(args);
-        if (windowWithMailerLite.ml) windowWithMailerLite.ml.q = queue;
-      };
-      windowWithMailerLite.ml = mailerLite;
-      mailerLite('account', '2543902');
+  useEffect(() => {
+    const windowWithMailerLite = window as typeof window & {
+      ml?: ((...args: unknown[]) => void) & { q?: unknown[][] };
     };
 
-    const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${MAILERLITE_SCRIPT}"]`);
-    if (existingScript) {
-      initialise();
-      return;
+    // MailerLite requires the account command to be queued before universal.js executes.
+    const mailerLite = windowWithMailerLite.ml || function (...args: unknown[]) {
+      const queue = windowWithMailerLite.ml?.q || [];
+      queue.push(args);
+      if (windowWithMailerLite.ml) windowWithMailerLite.ml.q = queue;
+    };
+    windowWithMailerLite.ml = mailerLite;
+    mailerLite('account', '2543902');
+
+    if (!document.querySelector<HTMLScriptElement>(`script[src="${MAILERLITE_SCRIPT}"]`)) {
+      const script = document.createElement('script');
+      script.src = MAILERLITE_SCRIPT;
+      script.async = true;
+      script.onerror = () => setFailed(true);
+      document.head.appendChild(script);
     }
 
-    const script = document.createElement('script');
-    script.src = MAILERLITE_SCRIPT;
-    script.async = true;
-    script.onload = initialise;
-    document.head.appendChild(script);
+    const container = document.querySelector('.ml-embedded[data-form="lI2kgo"]');
+    const observer = new MutationObserver(() => {
+      if (container?.childElementCount) setFailed(false);
+    });
+    if (container) observer.observe(container, { childList: true, subtree: true });
+
+    const timeout = window.setTimeout(() => {
+      if (!container?.childElementCount) setFailed(true);
+    }, 8000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timeout);
+    };
   }, []);
 
-  return <div className="ml-embedded strategy-mailerlite" data-form="lI2kgo" />;
+  return (
+    <div className="strategy-mailerlite-shell">
+      <div className="ml-embedded strategy-mailerlite" data-form="lI2kgo" />
+      {failed && <div className="strategy-form-fallback" role="status"><strong>The booking form could not load.</strong><span>Please refresh the page or call HHA on <a href="tel:+61412131818">0412 131 818</a>.</span></div>}
+    </div>
+  );
 }
 
 export function FreeStrategyCallPage() {
