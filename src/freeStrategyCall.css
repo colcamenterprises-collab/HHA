@@ -59,3 +59,9 @@
 .strategy-owner-placeholder::after { display: none; }
 .strategy-owner-placeholder span { font-family: var(--premium-serif); font-size: clamp(72px, 11vw, 150px); font-style: italic; line-height: .8; letter-spacing: -.08em; }
 .strategy-owner-placeholder small { font-size: 10px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; opacity: .5; }
+
+.strategy-mailerlite-shell { position: relative; min-height: 146px; }
+.strategy-form-fallback { display: grid; gap: 6px; margin: 22px 0 16px; padding: 18px; border: 1px solid rgba(5,6,8,.16); background: #f7f7f5; }
+.strategy-form-fallback strong { font-size: 13px; }
+.strategy-form-fallback span { color: rgba(5,6,8,.64); font-size: 12px; line-height: 1.5; }
+.strategy-form-fallback a { font-weight: 850; text-decoration: underline; text-underline-offset: 3px; }
