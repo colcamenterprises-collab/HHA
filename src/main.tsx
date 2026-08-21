@@ -11,10 +11,16 @@ import './processHover.css';
 import './heroServicesLayout.css';
 import './footerPolish.css';
 import './clientReviews.css';
+import './freeStrategyCall.css';
+import './strategyCallConcept.css';
+import './legalPages.css';
+import './cookieConsent.css';
 import { App } from './App';
+import { CookieConsent } from './components/CookieConsent';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
+    <CookieConsent />
   </React.StrictMode>,
 );

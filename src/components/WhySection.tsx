@@ -20,7 +20,7 @@ export function WhySection() {
           </article>
         ))}
       </div>
-      <a className="premium-why-link" href="#strategy-call">Start your brief</a>
+      <a className="premium-why-link" href="/free-strategy-call">Start your brief</a>
     </section>
   );
 }

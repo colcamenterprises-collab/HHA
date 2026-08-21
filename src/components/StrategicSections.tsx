@@ -230,7 +230,7 @@ export function FinalCtaSection() {
         <span>Start with strategy</span>
         <h2>Buy with a sharper brief,<br /><em>Evidence and less pressure</em></h2>
       </div>
-      <a className="premium-cta" href="#strategy-call">Contact us <ArrowUpRight size={16} /></a>
+      <a className="premium-cta" href="/free-strategy-call">Book a free call <ArrowUpRight size={16} /></a>
     </section>
   );
 }

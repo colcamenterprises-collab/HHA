@@ -11,7 +11,7 @@ export function Navbar() {
         <a href="#services">Services</a>
         <a href="#process">About</a>
       </div>
-      <a className="contact-btn" href="#strategy-call">Contact us <span><ArrowRight size={15} /></span></a>
+      <a className="contact-btn" href="/free-strategy-call">Book a free call <span><ArrowRight size={15} /></span></a>
     </nav>
   );
 }

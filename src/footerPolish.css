@@ -33,6 +33,9 @@
   text-align: right;
 }
 
+.footer-legal-links { display: flex; gap: 14px; margin: 12px 0; }
+.footer-legal-links a { font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+
 .footer-right p {
   max-width: 680px;
   margin: 0;

@@ -16,7 +16,7 @@ export function ServicesSection() {
         <div className="chips">{['Family Homes', 'Investments', 'First Home', 'Relocation', 'Off-Market'].map((chip) => <span key={chip}>{chip}</span>)}</div>
       </div>
       <div className="service-grid">
-        {services.map((service, index) => <article className={`service-card s${index}`} key={service[0] as string}>{service[2] && <div className="service-img card-img"><img src={service[2] as string} alt={service[0] as string} /></div>}<h3>{service[0]}</h3><p>{service[1]}</p><a className="service-link" href="#strategy-call">Enquire <ArrowUpRight size={12} /></a></article>)}
+        {services.map((service, index) => <article className={`service-card s${index}`} key={service[0] as string}>{service[2] && <div className="service-img card-img"><img src={service[2] as string} alt={service[0] as string} /></div>}<h3>{service[0]}</h3><p>{service[1]}</p><a className="service-link" href="/free-strategy-call">Enquire <ArrowUpRight size={12} /></a></article>)}
       </div>
     </section>
   );
