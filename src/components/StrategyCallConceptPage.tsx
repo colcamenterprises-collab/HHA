@@ -30,7 +30,7 @@ export function StrategyCallConceptPage() {
       </div>
 
       <nav className="concept-nav">
-        <a href="/" aria-label="HHA Buyers Agent home"><img src="/hha-buyers-agent-logo-black.svg" alt="HHA Buyers Agent" /></a>
+        <a className="logo concept-logo" href="/" aria-label="HHA Buyers Agent home"><img src="/hha-buyers-agent-logo-black.svg" alt="HHA Buyers Agent" /></a>
         <div><span>Prefer to talk?</span><a href="tel:+61412131818"><Phone size={14} /> 0412 131 818</a></div>
       </nav>
 
