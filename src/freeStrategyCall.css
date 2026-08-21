@@ -54,3 +54,8 @@
 @keyframes strategy-form-loading { to { background-position-x: -200%; } }
 @media (max-width: 900px) { .strategy-introduction { grid-template-columns: 1fr; }.strategy-introduction-image { width: min(100%, 520px); aspect-ratio: 1; }.strategy-form-assurance { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .strategy-mailerlite:empty { animation: none; } }
+
+.strategy-owner-placeholder { display: grid; place-content: center; gap: 10px; color: #050608; text-align: center; background: radial-gradient(circle at 50% 35%, #fff 0, #ecece7 42%, #d8d8d1 100%); }
+.strategy-owner-placeholder::after { display: none; }
+.strategy-owner-placeholder span { font-family: var(--premium-serif); font-size: clamp(72px, 11vw, 150px); font-style: italic; line-height: .8; letter-spacing: -.08em; }
+.strategy-owner-placeholder small { font-size: 10px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; opacity: .5; }
