@@ -1,5 +1,8 @@
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { useEffect } from 'react';
+import { ArrowRight, CalendarDays, Check, Clock3, Phone, ShieldCheck } from 'lucide-react';
 import { images } from '../data/siteData';
+
+const MAILERLITE_SCRIPT = 'https://assets.mailerlite.com/js/universal.js';
 
 const callBenefits = [
   'Clarify your property brief, budget and timing.',
@@ -12,6 +15,37 @@ const buyerTypes = [
   ['Property investors', 'Pressure-test value, rental appeal and long-term fit before committing.'],
   ['Relocation buyers', 'Create a clear remote or local search plan with fewer unknowns.'],
 ];
+
+function MailerLiteForm() {
+  useEffect(() => {
+    const initialise = () => {
+      const windowWithMailerLite = window as typeof window & {
+        ml?: ((...args: unknown[]) => void) & { q?: unknown[][] };
+      };
+
+      windowWithMailerLite.ml = windowWithMailerLite.ml || function (...args: unknown[]) {
+        const queue = windowWithMailerLite.ml?.q || [];
+        queue.push(args);
+        if (windowWithMailerLite.ml) windowWithMailerLite.ml.q = queue;
+      };
+      windowWithMailerLite.ml('account', '2543902');
+    };
+
+    const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${MAILERLITE_SCRIPT}"]`);
+    if (existingScript) {
+      initialise();
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = MAILERLITE_SCRIPT;
+    script.async = true;
+    script.onload = initialise;
+    document.head.appendChild(script);
+  }, []);
+
+  return <div className="ml-embedded strategy-mailerlite" data-form="lI2kgo" />;
+}
 
 export function FreeStrategyCallPage() {
   return (
@@ -31,19 +65,35 @@ export function FreeStrategyCallPage() {
           </ul>
           <a className="strategy-scroll-cta" href="#lead-form">Book my free strategy call <ArrowRight size={16} /></a>
         </div>
-        <div className="strategy-hero-image"><img src={images.hero} alt="Contemporary Australian home exterior" /></div>
 
         <aside className="strategy-form-card" id="lead-form" aria-label="Free strategy call booking form">
           <span>Free strategy call</span>
           <h2>Tell us where you are at.</h2>
-          <p>The HHA lead form will appear here once connected. The page, advert journey and every HHA conversion CTA are ready for that integration.</p>
-          <div className="strategy-form-placeholder" aria-live="polite">
-            <strong>Lead form integration pending</strong>
-            <small>Embed your HHA lead-generation form in this panel.</small>
+          <p>Complete the short form. Your enquiry is captured first, then you will go directly to Lee's calendar to choose a convenient time.</p>
+          <MailerLiteForm />
+          <div className="strategy-form-assurance">
+            <span><Clock3 size={14} /> Takes about 60 seconds</span>
+            <span><CalendarDays size={14} /> Calendar opens next</span>
+            <span><ShieldCheck size={14} /> No obligation</span>
           </div>
           <a className="strategy-phone-cta" href="tel:+61412131818">Prefer to talk now? Call HHA <Phone size={15} /></a>
-          <p className="strategy-privacy">Your details are used only to respond to your enquiry. No obligation, no pressure.</p>
+          <p className="strategy-privacy">Submitting starts HHA's enquiry follow-up and redirects you to Calendly. Your details are handled in line with HHA's <a href="/privacy-policy">Privacy Policy</a>.</p>
         </aside>
+
+        <div className="strategy-hero-image"><img src={images.hero} alt="Contemporary Australian home exterior" /></div>
+      </section>
+
+      <section className="strategy-introduction" aria-label="Your HHA strategy call">
+        <div className="strategy-introduction-image"><img src={images.owner} alt="HHA buyer adviser" /></div>
+        <div className="strategy-introduction-copy">
+          <span className="strategy-kicker">A direct conversation</span>
+          <h2>Strategy before<br /><em>property pressure.</em></h2>
+          <p>Your call is a focused conversation about the property you want, the position you are in and the decisions ahead. You will leave with clearer priorities and a practical next step—whether or not you engage HHA.</p>
+          <div className="strategy-availability">
+            <CalendarDays size={21} />
+            <div><strong>Choose your own appointment time</strong><span>After the form, Lee's live Calendly availability opens automatically.</span></div>
+          </div>
+        </div>
       </section>
 
       <section className="strategy-what">
