@@ -65,3 +65,102 @@
 .strategy-form-fallback strong { font-size: 13px; }
 .strategy-form-fallback span { color: rgba(5,6,8,.64); font-size: 12px; line-height: 1.5; }
 .strategy-form-fallback a { font-weight: 850; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Roomier strategy-call layout and MailerLite isolation */
+.strategy-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(520px, 560px);
+  align-items: start;
+  gap: clamp(48px, 6vw, 96px);
+}
+.strategy-hero-copy {
+  grid-column: 1;
+  grid-row: 1;
+  padding-top: clamp(12px, 2vw, 30px);
+}
+.strategy-form-card {
+  position: static;
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  padding: clamp(38px, 4vw, 58px);
+}
+.strategy-hero-image {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-top: clamp(20px, 3vw, 48px);
+}
+
+/* Prevent the site's legacy two-column form rule from compressing MailerLite. */
+.strategy-mailerlite form,
+.strategy-mailerlite .ml-block-form {
+  display: block !important;
+  width: 100% !important;
+}
+.strategy-mailerlite .ml-form-formContent,
+.strategy-mailerlite .ml-form-embedSubmit {
+  display: block !important;
+  width: 100% !important;
+}
+.strategy-mailerlite .ml-form-fieldRow {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 0 20px !important;
+}
+.strategy-mailerlite .ml-field-group,
+.strategy-mailerlite input:not([type="hidden"]),
+.strategy-mailerlite select,
+.strategy-mailerlite textarea {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+.strategy-mailerlite .ml-form-embedSubmit {
+  margin-top: 28px !important;
+}
+.strategy-mailerlite .ml-form-embedSubmit button {
+  width: 100% !important;
+  min-height: 56px !important;
+}
+.strategy-form-assurance {
+  gap: 12px;
+  margin-top: 24px;
+}
+.strategy-form-assurance span {
+  min-height: 58px;
+  padding: 12px;
+}
+
+@media (max-width: 1100px) {
+  .strategy-hero {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .strategy-hero-copy {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 820px;
+  }
+  .strategy-form-card {
+    grid-column: 1;
+    grid-row: 2;
+    width: min(100%, 760px);
+    margin: 0 auto;
+  }
+  .strategy-hero-image {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 620px) {
+  .strategy-form-card {
+    padding: 30px 22px;
+  }
+  .strategy-form-assurance {
+    grid-template-columns: 1fr;
+  }
+}
