@@ -23,12 +23,13 @@ function MailerLiteForm() {
         ml?: ((...args: unknown[]) => void) & { q?: unknown[][] };
       };
 
-      windowWithMailerLite.ml = windowWithMailerLite.ml || function (...args: unknown[]) {
+      const mailerLite = windowWithMailerLite.ml || function (...args: unknown[]) {
         const queue = windowWithMailerLite.ml?.q || [];
         queue.push(args);
         if (windowWithMailerLite.ml) windowWithMailerLite.ml.q = queue;
       };
-      windowWithMailerLite.ml('account', '2543902');
+      windowWithMailerLite.ml = mailerLite;
+      mailerLite('account', '2543902');
     };
 
     const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${MAILERLITE_SCRIPT}"]`);
@@ -84,11 +85,13 @@ export function FreeStrategyCallPage() {
       </section>
 
       <section className="strategy-introduction" aria-label="Your HHA strategy call">
-        <div className="strategy-introduction-image"><img src={images.owner} alt="HHA buyer adviser" /></div>
+        <div className="strategy-introduction-image strategy-owner-placeholder" role="img" aria-label="Lee Wilson portrait area">
+          <span>LW</span><small>Lee Wilson portrait</small>
+        </div>
         <div className="strategy-introduction-copy">
-          <span className="strategy-kicker">A direct conversation</span>
+          <span className="strategy-kicker">Meet Lee Wilson</span>
           <h2>Strategy before<br /><em>property pressure.</em></h2>
-          <p>Your call is a focused conversation about the property you want, the position you are in and the decisions ahead. You will leave with clearer priorities and a practical next step—whether or not you engage HHA.</p>
+          <p>Lee is the Managing Director of HHA Projects and HHA Buyers Agent, bringing buyer-side focus to Brisbane property searches. Your call is a direct conversation about the property you want, the position you are in and the decisions ahead.</p>
           <div className="strategy-availability">
             <CalendarDays size={21} />
             <div><strong>Choose your own appointment time</strong><span>After the form, Lee's live Calendly availability opens automatically.</span></div>
